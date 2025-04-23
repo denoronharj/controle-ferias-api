@@ -7,6 +7,7 @@ dotenv.config();
 
 const app = express();
 app.use(cors());
+app.use(express.static('public'));
 app.use(express.json());
 
 const transporter = nodemailer.createTransport({
@@ -31,7 +32,8 @@ app.post('/api/enviar-email-status', async (req, res) => {
       <div style="font-family: Arial, sans-serif; background-color: #f9f9f9; padding: 30px;">
         <div style="max-width: 600px; margin: auto; background-color: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); padding: 20px;">
           <div style="text-align: center;">
-            <img src="https://i.imgur.com/bC2sYAV.png" alt="Logo Silimed" style="max-width: 120px; margin-bottom: 20px;" />
+            <img src="https://controle-ferias-api.onrender.com/logo.png" alt="Logo Silimed" style="max-width: 120px; margin-bottom: 20px;" />
+
           </div>
           <h2 style="color: #d9534f; text-align: center;">${tipo} de usuário</h2>
           <p style="font-size: 16px;"><strong>Nome:</strong> ${nome}</p>
