@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import nodemailer from 'nodemailer';
 import dotenv from 'dotenv';
+import { verificarAfastamentosERetornos } from './verificarDatas.js';
 
 dotenv.config();
 
@@ -63,10 +64,14 @@ app.post('/api/enviar-email-status', async (req, res) => {
   }
 });
 
+app.get('/api/verificar-datas', async (req, res) => {
+  await verificarAfastamentosERetornos();
+  res.send('📅 Verificação executada!');
+});
+
 app.get('/', (req, res) => {
   res.send('API do Controle de Férias está online!');
 });
-
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`🚀 Servidor rodando na porta ${PORT}`);
