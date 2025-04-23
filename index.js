@@ -7,6 +7,7 @@ app.post('/api/enviar-email-status', async (req, res) => {
     from: process.env.EMAIL_USER,
     to: process.env.EMAIL_DESTINO,
     subject: `⚠️ ${tipo} de ${nome}`,
+    text: '',
     html: `
       <div style="font-family: Arial, sans-serif; background-color: #f9f9f9; padding: 30px;">
         <div style="max-width: 600px; margin: auto; background-color: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); padding: 20px;">
