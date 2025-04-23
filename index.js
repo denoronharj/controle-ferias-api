@@ -1,13 +1,32 @@
+import express from 'express';
+import cors from 'cors';
+import nodemailer from 'nodemailer';
+import dotenv from 'dotenv';
+
+dotenv.config();
+
+const app = express();
+app.use(cors());
+app.use(express.json());
+
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASSWORD
+  }
+});
+
 app.post('/api/enviar-email-status', async (req, res) => {
   const { nome, funcao, status } = req.body;
 
   const tipo = status === 'bloqueado' ? 'Bloqueio' : 'Desbloqueio';
-  
+
   const mailOptions = {
     from: process.env.EMAIL_USER,
     to: process.env.EMAIL_DESTINO,
     subject: `⚠️ ${tipo} de ${nome}`,
-    text: '',
+    text: '', // força prioridade do HTML
     html: `
       <div style="font-family: Arial, sans-serif; background-color: #f9f9f9; padding: 30px;">
         <div style="max-width: 600px; margin: auto; background-color: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); padding: 20px;">
@@ -40,4 +59,13 @@ app.post('/api/enviar-email-status', async (req, res) => {
     console.error('❌ Erro ao enviar e-mail:', error);
     res.status(500).send({ success: false, message: 'Erro ao enviar e-mail.' });
   }
+});
+
+app.get('/', (req, res) => {
+  res.send('API do Controle de Férias está online!');
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`🚀 Servidor rodando na porta ${PORT}`);
 });
