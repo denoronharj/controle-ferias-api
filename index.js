@@ -1,9 +1,12 @@
 import express from 'express';
+import cors from 'cors'; // 👈 ADICIONE
 import nodemailer from 'nodemailer';
 import dotenv from 'dotenv';
 
 dotenv.config();
 const app = express();
+
+app.use(cors()); // 👈 ATIVE O CORS AQUI
 app.use(express.json());
 
 const transporter = nodemailer.createTransport({
