@@ -1,12 +1,12 @@
 import express from 'express';
-import cors from 'cors'; // 👈 ADICIONE
+import cors from 'cors';
 import nodemailer from 'nodemailer';
 import dotenv from 'dotenv';
 
 dotenv.config();
 const app = express();
 
-app.use(cors()); // 👈 ATIVE O CORS AQUI
+app.use(cors()); 
 app.use(express.json());
 
 const transporter = nodemailer.createTransport({
@@ -25,7 +25,34 @@ app.post('/api/enviar-email-status', async (req, res) => {
     from: process.env.EMAIL_USER,
     to: process.env.EMAIL_DESTINO,
     subject: `⚠️ ${tipo} de ${nome}`,
-    text: `Nome: ${nome}\nFunção: ${funcao}\nNovo status: ${status}`
+    const mailOptions = {
+      from: process.env.EMAIL_USER,
+      to: process.env.EMAIL_DESTINO,
+      subject: `⚠️ ${tipo} de ${nome}`,
+      html: `
+        <div style="font-family: Arial, sans-serif; background-color: #f9f9f9; padding: 30px;">
+          <div style="max-width: 600px; margin: auto; background-color: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); padding: 20px;">
+            <div style="text-align: center;">
+              <img src="https://i.imgur.com/bC2sYAV.png" alt="Logo Silimed" style="max-width: 120px; margin-bottom: 20px;" />
+            </div>
+            <h2 style="color: #d9534f; text-align: center;">${tipo} de usuário</h2>
+            <p style="font-size: 16px;"><strong>Nome:</strong> ${nome}</p>
+            <p style="font-size: 16px;"><strong>Função:</strong> ${funcao}</p>
+            <p style="font-size: 16px;">
+              <strong>Status:</strong> 
+              <span style="color: ${status === 'bloqueado' ? '#d9534f' : '#5cb85c'}; font-weight: bold;">
+                ${status.toUpperCase()}
+              </span>
+            </p>
+            <hr style="margin: 20px 0;" />
+            <p style="font-size: 14px; color: #888; text-align: center;">
+              Este e-mail foi enviado automaticamente pelo sistema de controle de férias.
+            </p>
+          </div>
+        </div>
+      `
+    };
+    
   };
 
   try {
