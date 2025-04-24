@@ -1,0 +1,80 @@
+[debug] [2025-04-24T00:56:00.625Z] ----------------------------------------------------------------------
+[debug] [2025-04-24T00:56:00.628Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\D'noronha\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2025-04-24T00:56:00.629Z] CLI Version:   14.2.0
+[debug] [2025-04-24T00:56:00.629Z] Platform:      win32
+[debug] [2025-04-24T00:56:00.629Z] Node Version:  v22.14.0
+[debug] [2025-04-24T00:56:00.630Z] Time:          Wed Apr 23 2025 21:56:00 GMT-0300 (Horário Padrão de Brasília)
+[debug] [2025-04-24T00:56:00.630Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-04-24T00:56:00.871Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-04-24T00:56:00.872Z] > authorizing via signed-in user (fernandosantospintodacruz@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\D'noronha\OneDrive\Documentos\Projeto Controle Ferias
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2025-04-24T00:57:16.942Z] Using project from CLI flag: ferias-7fea6
+[debug] [2025-04-24T00:57:16.944Z] Checked if tokens are valid: false, expires at: 1745447705065
+[debug] [2025-04-24T00:57:16.944Z] Checked if tokens are valid: false, expires at: 1745447705065
+[debug] [2025-04-24T00:57:16.944Z] > refreshing access token with scopes: []
+[debug] [2025-04-24T00:57:16.947Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-04-24T00:57:16.948Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-04-24T00:57:17.259Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-04-24T00:57:17.259Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-04-24T00:57:17.305Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/ferias-7fea6 [none]
+[debug] [2025-04-24T00:57:17.804Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/ferias-7fea6 200
+[debug] [2025-04-24T00:57:17.804Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/ferias-7fea6 {"projectId":"ferias-7fea6","projectNumber":"269585181725","displayName":"Ferias","name":"projects/ferias-7fea6","resources":{"hostingSite":"ferias-7fea6"},"state":"ACTIVE","etag":"1_0e90456e-1cf5-4a86-8bfc-90d535b4616b"}
+[info] i  Using project ferias-7fea6 (Ferias) 
+[info] 
+=== Functions Setup
+[debug] [2025-04-24T00:57:17.833Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-04-24T00:57:17.834Z] > authorizing via signed-in user (fernandosantospintodacruz@gmail.com)
+[debug] [2025-04-24T00:57:17.834Z] [iam] checking project ferias-7fea6 for permissions ["firebase.projects.get"]
+[debug] [2025-04-24T00:57:17.834Z] Checked if tokens are valid: true, expires at: 1745459836259
+[debug] [2025-04-24T00:57:17.834Z] Checked if tokens are valid: true, expires at: 1745459836259
+[debug] [2025-04-24T00:57:17.835Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/ferias-7fea6:testIamPermissions [none]
+[debug] [2025-04-24T00:57:17.835Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/ferias-7fea6:testIamPermissions x-goog-quota-user=projects/ferias-7fea6
+[debug] [2025-04-24T00:57:17.835Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/ferias-7fea6:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2025-04-24T00:57:18.803Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/ferias-7fea6:testIamPermissions 200
+[debug] [2025-04-24T00:57:18.803Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/ferias-7fea6:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2025-04-24T00:57:18.804Z] Checked if tokens are valid: true, expires at: 1745459836259
+[debug] [2025-04-24T00:57:18.805Z] Checked if tokens are valid: true, expires at: 1745459836259
+[debug] [2025-04-24T00:57:18.805Z] Checked if tokens are valid: true, expires at: 1745459836259
+[debug] [2025-04-24T00:57:18.805Z] Checked if tokens are valid: true, expires at: 1745459836259
+[debug] [2025-04-24T00:57:18.805Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/ferias-7fea6/services/cloudfunctions.googleapis.com [none]
+[debug] [2025-04-24T00:57:18.806Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/ferias-7fea6/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/ferias-7fea6
+[debug] [2025-04-24T00:57:18.809Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/ferias-7fea6/services/runtimeconfig.googleapis.com [none]
+[debug] [2025-04-24T00:57:18.809Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/ferias-7fea6/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/ferias-7fea6
+[debug] [2025-04-24T00:57:19.921Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/ferias-7fea6/services/runtimeconfig.googleapis.com 200
+[debug] [2025-04-24T00:57:19.921Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/ferias-7fea6/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2025-04-24T00:57:19.929Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/ferias-7fea6/services/cloudfunctions.googleapis.com 200
+[debug] [2025-04-24T00:57:19.929Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/ferias-7fea6/services/cloudfunctions.googleapis.com [omitted]
+[info] 
+Detected existing codebase(s): default
+
+[info] Let's create a new codebase for your functions.
+[info] A directory corresponding to the codebase will be created in your project
+[info] with sample code pre-configured.
+
+[info] See https://firebase.google.com/docs/functions/organize-functions for
+[info] more information on organizing your functions using codebases.
+
+[info] Functions can be deployed with firebase deploy.
+

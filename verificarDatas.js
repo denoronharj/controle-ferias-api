@@ -4,7 +4,14 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_JSON);
+let serviceAccount;
+
+try {
+  serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_JSON);
+} catch (error) {
+  console.error('❌ Erro ao fazer parse da chave JSON do Firebase:', error.message);
+  throw new Error('FIREBASE_SERVICE_ACCOUNT_JSON inválido. Verifique o .env ou variável no Render.');
+}
 
 if (!admin.apps.length) {
   admin.initializeApp({
